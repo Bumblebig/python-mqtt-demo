@@ -3,7 +3,9 @@ import time
 
 def on_message(client, userdata, message):
     """Prints formatted message from broker in standard character encoding"""
-    print(f"Received message: {str(message.payload.decode("utf-8"))}")
+    # Converts data from binary to float
+    data = float(message.payload.decode("utf-8"))
+    print(f"Received message: {data}")
 
 # Initialise connection to broker
 topic = "TEMPERATURE"
